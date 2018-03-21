@@ -30,6 +30,7 @@ public class ToDoTest extends AbstractTestCase {
 		
 		report.log("Maximized the window");
 		driver.manage().window().maximize();
+		report.log("");
 		
 	}
 	
