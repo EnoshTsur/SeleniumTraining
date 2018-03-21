@@ -3,8 +3,8 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.testng.Assert;
 
+import lombok.Getter;
 import lombok.ToString;
 /***
  * To do taks & send it widget
@@ -15,6 +15,7 @@ import lombok.ToString;
 public class ToDoTasksWidget extends AbstractPage {
 
 	// ToDo attributes
+	@Getter
 	private final static By TEXT_AREA = By.id("todo");
 	private final static By BUTTON = By.id("send-task");
 	
@@ -46,29 +47,5 @@ public class ToDoTasksWidget extends AbstractPage {
 		bot.clickOn(BUTTON);
 		return this;
 	}
-	/***
-	 * Sending a new tasks and get at the and blank text area
-	 * @param text
-	 * @return ToDoTasksWidget for - flow
-	 */
-	public ToDoTasksWidget doNewTaskSuccess(String text) {
-		setAreaText(text);
-		clickOnButton();
-		wait.until(ExpectedConditions.textToBe(TEXT_AREA, ""));
-		Assert.assertEquals(driver.findElement(TEXT_AREA).getText(), "");
-		return this;
-	}
 	
-	/***
-	 * Sending a new tasks and get at the and text area with user1234 inside
-	 * @param text
-	 * @return ToDoTasksWidget for - flow
-	 */
-	public ToDoTasksWidget doNewTaskFail(String text) {
-		setAreaText(text);
-		clickOnButton();
-		wait.until(ExpectedConditions.textToBe(TEXT_AREA, ""));
-		Assert.assertEquals(driver.findElement(TEXT_AREA).getText(), "user1234");
-		return this;
-	}
 }
