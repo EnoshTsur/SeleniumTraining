@@ -1,0 +1,134 @@
+body{
+    margin: 0;
+    background-color: rgb(83, 97, 124);
+    color: rgb(188, 211, 238);
+    font-weight: 900;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#main-title{
+    
+    text-shadow: 0 0 15px rgb(116, 116, 230), 0 0 15px white;
+}
+#main-title:hover{
+    color: white;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(51, 59, 77);
+}
+
+li {
+    float: left;
+    border-right:1px solid #bbb;
+}
+
+li:last-child {
+    border-right: none;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: rgb(98, 158, 236);
+    opacity: 0.75;
+}
+
+.active {
+    background-color: rgb(68, 105, 160);
+    opacity: 0.75;
+}
+.todo{
+    margin: 0 auto;
+    width: 20vw;
+}
+#todo{
+width: 25vw;
+height: 20vh;
+box-shadow: 0 0 15px rgb(116, 116, 230), 0 0 15px white;
+margin-top: 5%;
+background-color: rgb(156, 176, 214);
+color: black;
+font-size: 2vw;
+}
+#send-task , .btn , .btn2{
+width: 6vw;
+height: 3vh;
+background-color: cornflowerblue;
+font-weight: 900;   
+margin-top: 5%;
+box-shadow: 0 0 15px whitesmoke;
+}
+#send-task:hover , .btn:hover , .btn2:hover{
+background-color: rgb(185, 216, 255);
+}
+
+.all-tasks{
+width: 30vw;
+margin: 0 auto;
+margin-top: 5%;
+border: 2px solid cornflowerblue;
+
+}
+
+.add-done , .remove-one{
+padding: 5%;
+}
+
+
+@media only screen and (max-width: 1150px) {
+   
+    #todo{
+    width: 45vw;
+    height: 20vh;
+    margin: 0 auto;
+    font-size: 5vw;
+    }
+    #send-task , .btn , .btn2{
+    width: 10vw;
+    height: 4vh;
+    font-weight: 900;   
+    margin-top: 10%;
+    }
+    .all-tasks{
+    width: 70vw;
+    margin: 0 auto;
+    margin-top: 5%;
+    
+    }
+    input{
+        width:15vw;
+        height: 3vh;
+    }
+    @media only screen and (max-width: 800px) {
+   
+        .all-tasks{
+        width: 70vw;
+        margin: 0 auto;
+        margin-top: 5%;
+        
+        }
+
+        #send-task , .btn , .btn2{
+            width: 15vw;
+            height: 4vh;
+            font-weight: 900;   
+            }
+
+        input{
+            width:35vw;
+            height: 2vh;
+        }
+    }
+    
+}

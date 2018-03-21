@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>To do list</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animate.css">
+    <script src="jquery-3.3.1.min.js"></script>
+    <script src="todo.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</head>
+
+<body>
+    <h1 id="main-title">Hello you have 2 things to do</h1>
+    <ul>
+        <li>
+            <a id="todo-task" class="active" href="#">ToDo tasks</a>
+        </li>
+        <li>
+            <a id="all-tasks" href="#">All tasks</a>
+        </li>
+        <li>
+            <a id="done-tasks" href="#">Done tasks</a>
+        </li>
+        <li style="float:right">
+            <a id="about" href="#">About</a>
+        </li>
+    </ul>
+
+    <!-- todo -->
+    <div class="todo">
+        <h2 class="animated infinite enter bounce">Enter new Task</h2>
+        <textarea name="todo" id="todo" cols="30" rows="10">
+        </textarea>
+        <button id="send-task">Send</button>
+    </div>
+
+    <!-- all tasks -->
+    <div class="all-tasks">
+            <h2 class="animated infinite enter fadeIn">All Tasks</h2>
+
+            <div class="add-done">
+                <h3 id="tasks"></h3>
+                <input type='number' id='done-input' placeholder="Number of task that done"><button class='btn'>Did it!</button>
+            </div>
+            <div class="remove-one">
+                <input type='number' id='remove-input' placeholder="Number of task remove"><button class='btn2'>Remove!</button>
+            </div>
+        
+    </div>
+    <!-- done tasks -->
+    <div class="done-tasks">
+            <h2 class="animated infinite enter fadeIn">Done Tasks</h2>
+            <div class="done-text">
+
+            </div>
+
+        
+      
+        
+    </div>
+
+    <script src="navigation.js"></script>
+</body>
+
+</html>
