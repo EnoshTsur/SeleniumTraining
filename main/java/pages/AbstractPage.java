@@ -2,6 +2,8 @@ package pages;
 
 
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -26,6 +28,7 @@ public abstract class AbstractPage {
 	 */
 	public AbstractPage(WebDriver driver) {
 		this.driver = driver;
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.MINUTES);
 		this.bot = new ActionBot(driver);
 		this.wait = new WebDriverWait(driver, 30);
 	}

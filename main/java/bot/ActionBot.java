@@ -58,6 +58,8 @@ public class ActionBot {
 		driver.findElement(locator).click();
 		return this;
 	}
+	
+
 	/***
 	 * Double Clicking on By element
 	 * @param locator
@@ -72,8 +74,8 @@ public class ActionBot {
 	 * Pressing Enter
 	 * @return ActionBot - for flow
 	 */
-	public ActionBot pressEnter() {
-		action.sendKeys(Keys.ENTER).perform();
+	public ActionBot pressEnter(By locator) {
+		action.sendKeys(driver.findElement(locator), Keys.ENTER).perform();
 		return this;
 	}
 	/***
@@ -84,4 +86,16 @@ public class ActionBot {
 		driver.findElement(locator).sendKeys(text);
 		return this;
 	}
+	
+	/***
+	 * Clearing input
+	 * @param locator
+	 * @return ActionBot for - flow
+	 */
+	public ActionBot clearInput(By locator) {
+		driver.findElement(locator).clear();
+		return this;
+	}
+	
+
 }

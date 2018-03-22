@@ -2,6 +2,8 @@ package tests;
 
 import org.testng.annotations.Test;
 
+import providers.DataProviders;
+
 @Test
 public class DataProviderTest {
 

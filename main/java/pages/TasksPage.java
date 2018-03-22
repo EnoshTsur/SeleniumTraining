@@ -11,6 +11,7 @@ public class TasksPage extends AbstractPage {
 
 	// Tasks page attributes
 	private final static By TODO = By.linkText("ToDo tasks");
+	private final static By ALL = By.id("all-tasks");
 	
 	/***
 	 * CTR contains WebDriver
@@ -30,6 +31,16 @@ public class TasksPage extends AbstractPage {
 		wait.until(ExpectedConditions.elementToBeClickable(TODO));
 		bot.clickOn(TODO);
 		return new ToDoTasksWidget(driver);
+	}
+	
+	/***
+	 * Click on ToDoTasksWidget 
+	 * @return new ToDoTasksWidget page
+	 */
+	public AllTasksWidget clickOnAllTasks() {
+		wait.until(ExpectedConditions.elementToBeClickable(ALL));
+		bot.clickOn(ALL);
+		return new AllTasksWidget(driver);
 	}
 
 }

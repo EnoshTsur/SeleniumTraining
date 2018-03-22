@@ -1,19 +1,19 @@
 package tests;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import enums.Browser;
 import factory.DriverFactory;
+import pages.AllTasksWidget;
 import pages.TasksPage;
 import pages.ToDoTasksWidget;
 import providers.DataProviders;
 
 @Test
-public class ToDoTest extends AbstractTestCase {
+public class AllTaskWidgetDoneTasksTest extends AbstractTestCase {
 
 	// Test attributes
 	private WebDriver driver;
@@ -41,8 +41,8 @@ public class ToDoTest extends AbstractTestCase {
 	/***
 	 * Test for ToDo - task area
 	 */
-	@Test(dataProvider = "todo-providers" , dataProviderClass =  DataProviders.class)
-	public void todoTestSuccess(String partOfDay , String task , String afterClick) {
+	@Test(dataProvider = "all-tasks-providers", dataProviderClass = DataProviders.class)
+	public void todoTestSuccess(String number) {
 		report.startLevel("Starting a success test!");
 
 		TasksPage tasksPage = new TasksPage(driver);
@@ -53,17 +53,18 @@ public class ToDoTest extends AbstractTestCase {
 
 		report.log("Adding new task");
 
-		widget.setAreaText(partOfDay + task).clickOnButton();
+		widget.setAreaText("Walking my dog out").clickOnButton().clickOnSwalButton();
 
-		report.log("Assert text area return blank");
+		report.log("Go to all task widget");
 
-		WebElement textArea = driver.findElement(ToDoTasksWidget.getTEXT_AREA());
+		AllTasksWidget allTask = tasksPage.clickOnAllTasks();
+		
+		report.log("Adding new task to the done list");
 
-		Assert.assertEquals(textArea.getText(), afterClick);
+		allTask.clearDoneNumber().setDoneNumber(number).clickOnDoneButton().clickOnSwalButton();
+		
+		Assert.assertEquals(driver.findElement(AllTasksWidget.getDONE_INPUT()).getAttribute("value"), "0");
 
 		report.endLevel();
 	}
-
-
-
 }
