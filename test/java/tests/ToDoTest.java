@@ -40,8 +40,8 @@ public class ToDoTest extends AbstractTestCase {
 	/***
 	 * Test for success
 	 */
-	@Test
-	public void todoTestSuccess() {
+	@Test(dataProvider = "tasks-providers" , dataProviderClass =  DataProviders.class)
+	public void todoTestSuccess(String partOfDay , String task , String continueTask) {
 		report.startLevel("Starting a success test!");
 
 		TasksPage tasksPage = new TasksPage(driver);
@@ -52,7 +52,7 @@ public class ToDoTest extends AbstractTestCase {
 
 		report.log("Adding new task");
 
-		widget.setAreaText("Avner").clickOnButton();
+		widget.setAreaText(partOfDay + task + continueTask).clickOnButton();
 
 		report.log("Assert text area return blank");
 
@@ -66,8 +66,8 @@ public class ToDoTest extends AbstractTestCase {
 	/***
 	 * Test for failure
 	 */
-	@Test
-	public void todoTestFail() {
+	@Test(dataProvider = "tasks-providers" , dataProviderClass =  DataProviders.class)
+	public void todoTestFail(String partOfDay , String task , String continueTask) {
 		report.startLevel("Starting a failure test!");
 
 		TasksPage tasksPage = new TasksPage(driver);
@@ -78,7 +78,7 @@ public class ToDoTest extends AbstractTestCase {
 
 		report.log("Adding new task");
 
-		widget.setAreaText("Avner").clickOnButton();
+		widget.setAreaText(partOfDay + task + continueTask).clickOnButton();
 
 		WebElement textArea = driver.findElement(ToDoTasksWidget.getTEXT_AREA());
 
